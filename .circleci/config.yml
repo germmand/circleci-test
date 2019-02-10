@@ -1,0 +1,27 @@
+version: 2.1
+
+commands:
+  install-requirements: 
+    description: "Install all of the requirements from the file specified."
+    paramaters:
+      file: 
+        type: string
+        default: "requirements.txt"
+    steps:
+      - run: pip install -r << parameters.file >>
+  run-tests:
+    description: "Run all of the unit tests, duh..."
+    steps:
+      - run: python -m unittest
+
+executors:
+  python3-executor:
+    docker:
+      - image: circleci/python:3.7.2
+
+jobs:
+  python-job:
+    executor: python3-executor
+    steps:
+      - install-requirements
+      - run-tests
