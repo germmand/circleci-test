@@ -20,7 +20,7 @@ executors:
       - image: circleci/python:3.7.2
 
 jobs:
-  python-job:
+  build:
     executor: python3-executor
     steps:
       - install-requirements
