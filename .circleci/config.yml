@@ -24,5 +24,6 @@ jobs:
     working_directory: ~/circleci-test
     executor: python3-executor
     steps:
+      - checkout
       - install-requirements
       - run-tests
