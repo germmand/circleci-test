@@ -20,7 +20,7 @@ class TestSortMethods(unittest.TestCase):
     def test_selection_sort(self):
         # Arrange
         original = [54, 32, 87, 98]
-        expected = [32, 54, 87, 98]
+        expected = [32, 54, 87, 99]
         
         # Act
         actual = selection_sort(original)
