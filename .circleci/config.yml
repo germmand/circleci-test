@@ -26,4 +26,18 @@ jobs:
     steps:
       - checkout
       - install-requirements
+  test:
+    working_directory: ~/circleci-test
+    executor: python3-executor
+    steps:
+      - checkout
       - run-tests
+
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
